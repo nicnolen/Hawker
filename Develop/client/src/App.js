@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Auto from './pages/Auto';
-import Clothing from './pages/Clothing';
-import Household from './pages/Household';
-import Outdoor from './pages/Outdoor';
-import Tech from './pages/Tech';
-import Footer from './components/Footer';
-import Header from './components/Header';
+// import Auto from './pages/Auto';
+// import Clothing from './pages/Clothing';
+// import Household from './pages/Household';
+// import Outdoor from './pages/Outdoor';
+// import Tech from './pages/Tech';
+// import Footer from './components/Footer';
+// import Header from './components/Header';
 import {
   ApolloClient,
   InMemoryCache,
@@ -38,14 +38,14 @@ function App() {
       <Header />
     <Router>
       <>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
-          <Route exact path='/' component={Home} />
+          {/* <Route exact path='/' component={Homepage} />
           <Route exact path='/auto' component={Auto} />
           <Route exact path='/clothing' component={Clothing} />
           <Route exact path='/household' component={Household} />
           <Route exact path='/outdoor' component={Outdoor} />
-          <Route exact path='/tech' component={Tech} />
+          <Route exact path='/tech' component={Tech} /> */}
           <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
         </Routes>
       </>
