@@ -18,7 +18,7 @@ function Homepage() {
         <CCardBody>
           <CCardTitle>{item.title}</CCardTitle>
           <CCardText>${item.price}</CCardText>
-          <Link to={`/SingleItem/${item._id}`}>
+          <Link to={{pathname:`/SingleItem/${item._id}`,item: item}}>
             {' '}
             <CButton>See Item</CButton>
           </Link>
@@ -31,15 +31,17 @@ function Homepage() {
     setCategories(e.target.innerText);
   };
 
-  const filterCategory = (event) => {
+  const filterCategory = () => {
     console.log(itemData.items);
     console.log(categories);
     const newArr = itemData.items.filter((e) => e.category.name === categories);
     console.log(newArr);
 
     return newArr.map((filteredItem) => (
+
       
         <CCard key={filteredItem._id}>
+
           <CCardImage
             orientation="top"
             src={filteredItem.image}
@@ -84,7 +86,7 @@ function Homepage() {
       return getItemData();
     } else if (categories !== undefined) {
       return filterCategory();
-    }
+    } 
   };
 
   return (
