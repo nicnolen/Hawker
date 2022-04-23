@@ -16,7 +16,7 @@ function Confirmation({ setOpenModal }) {
   const { itemData } = useQuery(QUERY_ITEMS);
   console.log(itemData);
   const { data } = useQuery(QUERY_USER);
-  console.log(data);
+  console.info(data);
 
   const handleInputChange = (e) => {
     const { target } = e;
