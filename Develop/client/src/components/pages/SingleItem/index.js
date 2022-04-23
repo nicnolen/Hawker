@@ -69,7 +69,7 @@ function SingleItem() {
     );
   };
 
-  return <div className="itemContainer">{data ? getSingleItemData() : <div>Loading...</div>}</div>;
+  return <div>{data ? getSingleItemData() : <div>Loading...</div>}</div>;
 }
 
 export default SingleItem;
