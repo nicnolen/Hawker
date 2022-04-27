@@ -4,12 +4,20 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ITEMS } from '../../../utils/queries';
 import { QUERY_CATEGORIES } from '../../../utils/queries';
+import Form from 'react-bootstrap/Form';
 
 function Homepage() {
   const { data: itemData } = useQuery(QUERY_ITEMS);
   const { data: categoryData } = useQuery(QUERY_CATEGORIES);
   const [categories, setCategories] = useState();
-  console.info(itemData);
+  // console.info(itemData);
+
+  const [inputText, setInputText] = useState('');
+  let inputHandler = (event) => {
+    //convert input text to lower case
+    var lowerCase = event.target.value.toLowerCase();
+    setInputText(lowerCase);
+  };
 
   // getting item data from the database and mapping to the ui
   const getItemData = () => {
@@ -67,6 +75,25 @@ function Homepage() {
     );
   };
 
+  // console.log(itemData);
+  const filteredData = () => {
+    const newArr = itemData.items.filter((item) => {
+      console.log(item.title);
+      const lowerTitle = item.title.toLowerCase()
+      if (lowerTitle.includes(inputText)) {
+        return item;
+      }
+    });
+    console.log(newArr);
+  };
+
+  // newArr.map((item) => (
+  //   <div className="box" key={item._id}>
+  //     <p>{item.title}</p>
+  //     {/* <p>{item.author}</p> */}
+  //   </div>
+  // ));
+
   const showDiv = () => {
     if (document.querySelector('#catBtn').style.display === '') {
       document.querySelector('#catBtn').style.display = 'flex';
@@ -85,14 +112,25 @@ function Homepage() {
 
   return (
     <div>
+      <Form className="d-flex">
+        <Form.Control
+          type="search"
+          placeholder="Search"
+          onChange={inputHandler}
+          className="me-2 formField"
+          aria-label="Search"
+          input={inputText}
+        />
+        <button className="btn-primary">Search</button>
+      </Form>
       <div className="selectCat">
         <button className="btn-primary" onClick={showDiv}>
           Categories
         </button>
-        </div>
-        
-          <div>{categoryData ? getCategoryData() : <div>Loading...</div>}</div>
-        
+      </div>
+
+      <div>{categoryData ? getCategoryData() : <div>Loading...</div>}</div>
+      <div className="itemContainer">{itemData ? filteredData() : <div>Loading...</div>}</div>
       <div className="itemContainer">{itemData ? renderCards() : <div>Loading...</div>}</div>
     </div>
   );
