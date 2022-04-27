@@ -77,22 +77,34 @@ function Homepage() {
 
   // console.log(itemData);
   const filteredData = () => {
+    /* eslint-disable*/
     const newArr = itemData.items.filter((item) => {
       console.log(item.title);
-      const lowerTitle = item.title.toLowerCase()
+      const lowerTitle = item.title.toLowerCase();
       if (lowerTitle.includes(inputText)) {
         return item;
       }
     });
     console.log(newArr);
+    return newArr.map((item) => (
+      <CCard key={item._id}>
+        <CCardImage
+          orientation="top"
+          src={item.image}
+          alt={item.title}
+          width="100%"
+        />
+        <CCardBody>
+          <CCardTitle>{item.title}</CCardTitle>
+          <CCardText>${item.price}</CCardText>
+          <Link to={`/SingleItem/${item._id}`}>
+            {' '}
+            <CButton>See Item</CButton>
+          </Link>
+        </CCardBody>
+      </CCard>
+    ));
   };
-
-  // newArr.map((item) => (
-  //   <div className="box" key={item._id}>
-  //     <p>{item.title}</p>
-  //     {/* <p>{item.author}</p> */}
-  //   </div>
-  // ));
 
   const showDiv = () => {
     if (document.querySelector('#catBtn').style.display === '') {
