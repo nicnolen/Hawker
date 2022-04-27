@@ -33,7 +33,7 @@ function Dashboard() {
   };
 
   return (
-   
+
     <div>
       <OrderHistory />
 
@@ -42,7 +42,7 @@ function Dashboard() {
         {data ? getUserListings() : <div>You have not posted any items for sale yet...</div>}
       </div>
     </div>
-    
+
   );
 }
 

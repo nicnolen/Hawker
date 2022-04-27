@@ -14,7 +14,7 @@ function Confirmation({ setOpenModal }) {
   const [phonenumber, setShippingPhoneNumber] = useState('');
 
   const { itemData } = useQuery(QUERY_ITEMS);
-  console.log(itemData);
+  console.info(itemData);
   const { data } = useQuery(QUERY_USER);
   console.info(data);
 

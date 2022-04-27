@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import {Elements} from '@stripe/react-stripe-js';
-import {loadStripe} from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
 import { StoreProvider } from './utils/GlobalState';
 import PrivateRoute from './components/PrivateRoute';
@@ -16,8 +16,8 @@ import Checkout from './components/pages/Checkout/index';
 import PostItem from './components/pages/PostItem/index';
 import SingleItem from './components/pages/SingleItem/index';
 import NoMatch from './components/pages/NoMatch/index';
-import Success from './components/pages/Success/success'
-import Cancel from './components/pages/Cancel/index'
+import Success from './components/pages/Success/success';
+import Cancel from './components/pages/Cancel/index';
 import './assets/css/index.css';
 import Dashboard from './components/pages/Dashboard/dashboard';
 
@@ -43,12 +43,11 @@ const client = new ApolloClient({
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
-  // const [filterTerm, setFilterTerm] = useState('');
 
   const toggle = (whichButton) => {
     setIsLogin(whichButton);
   };
-  
+
   // var response = fetch('/secret').then(function(response) {
   //     return response.json();
   //   }).then(function(responseJson) {
@@ -58,31 +57,27 @@ function App() {
 
   const options = {
     // passing the client secret obtained from the server
-    clientSecret: 'sk_test_51Kr5p5HU7HWuZgLMQZb19OjHdULlM4E5vgrBTh8mMJMpN5ldYBDni2CkuUOe1agXrK9gAFkheiJofC6XAgtV4CzJ00Zjen1gxS'
+    clientSecret:
+      'sk_test_51Kr5p5HU7HWuZgLMQZb19OjHdULlM4E5vgrBTh8mMJMpN5ldYBDni2CkuUOe1agXrK9gAFkheiJofC6XAgtV4CzJ00Zjen1gxS'
   };
-
-
-  // const handleChange = (event) => {
-  //   setFilterTerm(event);
-  // };
 
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Header isLogin={isLogin} /*handleChange={handleChange}*/ />
+        <Header isLogin={isLogin} />
         <StoreProvider>
           <Routes>
-            <Route exact path="/" element={<Homepage /*filterTerm={filterTerm} */ />} />
+            <Route exact path="/" element={<Homepage />} />
             <Route exact path="/login" element={<Login toggle={toggle} />} />
             <Route exact path="/signup" element={<Signup toggle={toggle} />} />
             <Route
               exact
               path="singleItem/checkout/:id"
               element={
-                <PrivateRoute>    
+                <PrivateRoute>
                   <Elements stripe={stripePromise} options={options}>
-                <Checkout />
-              </Elements>
+                    <Checkout />
+                  </Elements>
                 </PrivateRoute>
               }
             />
