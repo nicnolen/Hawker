@@ -77,7 +77,7 @@ function Homepage() {
 
   // console.log(itemData);
   const filteredData = () => {
-    /* eslint-disable*/
+    /* eslint-disable-next-line*/
     const newArr = itemData.items.filter((item) => {
       console.log(item.title);
       const lowerTitle = item.title.toLowerCase();
@@ -88,12 +88,7 @@ function Homepage() {
     console.log(newArr);
     return newArr.map((item) => (
       <CCard key={item._id}>
-        <CCardImage
-          orientation="top"
-          src={item.image}
-          alt={item.title}
-          width="100%"
-        />
+        <CCardImage orientation="top" src={item.image} alt={item.title} width="100%" />
         <CCardBody>
           <CCardTitle>{item.title}</CCardTitle>
           <CCardText>${item.price}</CCardText>
@@ -115,10 +110,12 @@ function Homepage() {
   };
 
   const renderCards = () => {
-    if (itemData && categories === undefined) {
-      return getItemData();
-    } else if (categories !== undefined) {
+    if (categories !== undefined) {
       return filterCategory();
+    } else if (inputText !== undefined) {
+      return filteredData();
+    } else if (itemData && categories === undefined) {
+      return getItemData();
     }
   };
 
@@ -142,7 +139,7 @@ function Homepage() {
       </div>
 
       <div>{categoryData ? getCategoryData() : <div>Loading...</div>}</div>
-      <div className="itemContainer">{itemData ? filteredData() : <div>Loading...</div>}</div>
+      {/* <div className="itemContainer">{itemData ? filteredData() : <div>Loading...</div>}</div> */}
       <div className="itemContainer">{itemData ? renderCards() : <div>Loading...</div>}</div>
     </div>
   );
