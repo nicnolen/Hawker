@@ -59,11 +59,14 @@ const Checkout = () => {
         </button>
         {modalOpen && <Confirmation setModalOpen={setModalOpen} />}
       </div>
-      <div className="pricing">
+      <div className='priceDiv'>
+        <div className="pricing">
         <p>Item Price- {details.price}</p>
         <p>Sales Tax- {tax}</p>
         <p>Shipping- {shipping}</p>
         <p>Total- {total}</p>
+        </div>
+        
 
         <div>
           <img src={details.image} alt={details.title} style={{ width: '10rem' }}></img>
