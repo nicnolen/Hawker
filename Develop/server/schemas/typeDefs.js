@@ -83,6 +83,10 @@ const typeDefs = gql`
     contactInfo: [ContactInfo]
     shipping: ShippingDetails
   }
+  
+  type Checkout {
+    session: ID
+  }
 
   type Mutation {
     login(email: String!, password: String!): Auth

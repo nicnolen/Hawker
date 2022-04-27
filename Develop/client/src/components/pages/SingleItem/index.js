@@ -32,6 +32,7 @@ function SingleItem() {
   const getSingleItemData = () => {
     return (
       <div className="itemContainer">
+        {console.info(data.item._id)}
         <div className="itemDiv">
           <div className="singleCard">
             <img orientation="top" src={data.item.image} alt={data.item.title} />
@@ -52,7 +53,6 @@ function SingleItem() {
             <div>
               <a href={`checkout/${data.item._id}`}>
                 {' '}
-
                 <button onClick={saveItem} className="btn-primary">
                   Checkout
                 </button>
@@ -61,10 +61,7 @@ function SingleItem() {
                 <button onClick={handleDeleteItem} className="btn-primary">
                   Delete Item
                 </button>
-              ) : (
-                null
-              )}
-
+              ) : null}
             </div>
           </div>
         </div>
@@ -72,7 +69,7 @@ function SingleItem() {
     );
   };
 
-  return <div className="itemContainer">{data ? getSingleItemData() : <div>Loading...</div>}</div>;
+  return <div>{data ? getSingleItemData() : <div>Loading...</div>}</div>;
 }
 
 export default SingleItem;
