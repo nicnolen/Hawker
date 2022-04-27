@@ -5,7 +5,8 @@ import { DELETE_ITEM } from '../../../utils/mutations';
 
 function SingleItem() {
   // substring number probably will change we stop hosting on Local host
-  let itemId = window.location.href.substring(46);
+  let itemId = window.location.href.slice(-24);
+  console.info(itemId);
   const { data } = useQuery(QUERY_SINGLE_ITEM, { variables: { id: itemId } });
   console.info(data);
 
@@ -68,7 +69,7 @@ function SingleItem() {
     );
   };
 
-  return <div className="itemContainer">{data ? getSingleItemData() : <div>Loading...</div>}</div>;
+  return <div>{data ? getSingleItemData() : <div>Loading...</div>}</div>;
 }
 
 export default SingleItem;
