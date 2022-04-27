@@ -130,7 +130,6 @@ function Homepage() {
           aria-label="Search"
           input={inputText}
         />
-        <button className="btn-primary">Search</button>
       </Form>
       <div className="selectCat">
         <button className="btn-primary" onClick={showDiv}>
