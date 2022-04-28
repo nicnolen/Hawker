@@ -32,7 +32,8 @@ function Dashboard() {
   };
 
   return (
-    <div className="orderContainer">
+
+    <div>
       <OrderHistory />
       <div className='container'>
         <div className="orderTitle">YOUR PAST LISTINGS</div>

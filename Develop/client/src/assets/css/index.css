@@ -117,12 +117,6 @@
   width: 100%;
 }
 
-@media (max-width: 480px) {
-  .search {
-    display: none;
-  }
-}
-
 .photo {
   width: 25%;
   border-radius: 15px;
@@ -289,6 +283,13 @@ form {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+
+.search {
+  background-color: #219EBC;
+  padding: .5rem 0 .5rem 0;
+  -webkit-box-shadow: 0px 5px 8px #6d6a75;
+          box-shadow: 0px 5px 8px #6d6a75;
 }
 
 /* VARIABLES */
