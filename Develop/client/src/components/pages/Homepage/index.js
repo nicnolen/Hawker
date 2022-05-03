@@ -121,7 +121,7 @@ function Homepage() {
 
   return (
     <div>
-      <Form className="d-flex">
+      <Form className="search">
         <Form.Control
           type="search"
           placeholder="Search"
