@@ -15,7 +15,7 @@ Do you have a spectacular item that you just don't need anymore? Are you in sear
 ## Usage
 Check out our site at [Hawker](https://texas-hawker.herokuapp.com/) and hawk your wares! The finished output:
 
-![screenshot](Develop/client/src/assets/images/icons/hawker-home.png)
+![screenshot](Develop/client/src/assets/images/screenshots/hawker-home.png)
 
 ## Created with:
 React, React-Router, Sass, GraphQL, Apollo, Stripe, JWT, CoreUI, Jest, Prettier, ESLint, Heroku, bcrypt, Faker.js, JavaScript.
