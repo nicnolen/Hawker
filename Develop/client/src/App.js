@@ -21,10 +21,11 @@ import Cancel from './components/pages/Cancel/index';
 import './assets/css/index.css';
 import Dashboard from './components/pages/Dashboard/dashboard';
 
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+
 const httpLink = createHttpLink({
   uri: '/graphql'
 });
-const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
