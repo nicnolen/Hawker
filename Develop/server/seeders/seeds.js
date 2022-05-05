@@ -12,7 +12,8 @@ db.once('open', async () => {
     { name: 'Auto' },
     { name: 'Tech' },
     { name: 'Clothing' },
-    { name: 'Home' }
+    { name: 'Home' },
+    { name: 'Other' }
   ]);
 
   console.info('Categories seeded.');

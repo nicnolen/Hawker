@@ -1,9 +1,3 @@
-// import React from 'react';
-// import { ExternalLink } from 'react-external-link';
-// import {useStripe, useElements, PaymentElement} from '@stripe/react-stripe-js';
-
-// const Checkout = () => {
-
 import React, { useEffect, useState } from 'react';
 import { useLazyQuery, useQuery } from '@apollo/client';
 import { QUERY_CHECKOUT, QUERY_SINGLE_ITEM } from '../../../utils/queries';
@@ -18,7 +12,7 @@ const Checkout = () => {
   const itemIds = useQuery(QUERY_SINGLE_ITEM, { variables: { id: itemId } });
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
-  console.info(data);
+  // console.info(data);
   const details = JSON.parse(localStorage.getItem('itemData')).item;
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -59,11 +53,13 @@ const Checkout = () => {
         </button>
         {modalOpen && <Confirmation setModalOpen={setModalOpen} />}
       </div>
-      <div className="pricing">
-        <p>Item Price- {details.price}</p>
-        <p>Sales Tax- {tax}</p>
-        <p>Shipping- {shipping}</p>
-        <p>Total- {total}</p>
+      <div className="priceDiv">
+        <div className="pricing">
+          <p>Item Price- ${details.price}</p>
+          <p>Sales Tax- ${tax}</p>
+          <p>Shipping- ${shipping}</p>
+          <p>Total- ${total}</p>
+        </div>
 
         <div>
           <img src={details.image} alt={details.title} style={{ width: '10rem' }}></img>

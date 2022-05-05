@@ -2,36 +2,27 @@
 @import './_responsive'
 
 .itemDiv
-  display: grid
-  grid-template-columns: 1fr 1fr
-  margin: 3rem 1rem
-  max-width: 50%
-  min-height: 50%
+  display: flex
+  justify-content: space-evenly
+  align-items: center
+  height: 70vh
   @media (max-width: $bp-tablet)
-    grid-template-columns: 1fr
-    justify-content: center
-  @media (max-width: $bp-phone)
-    grid-template-columns: 1fr
-    justify-content: center
-    margin: 0 1rem
+    flex-direction: column
 
 .singleCard
-  width: 100%
-  margin: 3rem 0
+  width: 50%
   display: flex
   justify-content: center
   align-items: center
   img
-    width: 100%
+    width: 80%
     border-radius: 15px
     box-shadow: 5px 5px 8px $offset
     transform: rotate(-3.5deg)
   @media (max-width: $bp-tablet)
-    margin: 0
     margin-top: 4rem
   @media (max-width: $bp-phone)
-    width: 100%
-    margin: 0
+    width: 90%
     margin-top: 1rem
 
 .info
@@ -46,8 +37,8 @@
   box-shadow: 5px 5px 8px $offset
   text-shadow: 2px 2px 5px $dark
   @media (max-width: $bp-tablet)
-    width: 100%
+    width: 50%
     margin-top: 1.5rem
   @media (max-width: $bp-phone)
-    width: 100%
+    width: 75%
     margin-top: 1.5rem

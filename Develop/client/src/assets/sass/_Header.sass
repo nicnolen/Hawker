@@ -7,22 +7,20 @@
   top: 0
   width: 100%
   text-align: center
-  box-shadow: 0px 5px 8px $offset
+  box-shadow: 0px 10px 2px $background
 
 .row
   display: grid
   grid-template-columns: 1fr 1fr
   @media ( max-width: $bp-phone )
     grid-template-columns: 1fr
-    
-  
-  
+
 .colNav, .search
   display: flex
   justify-content: center
   align-items: flex-end
   flex-direction: row
-  
+
 .log
   @media ( max-width: $bp-phone )
     display: grid
@@ -33,10 +31,6 @@
   flex-direction: row
   width: 100%
 
-.search
-  @media ( max-width: $bp-phone )
-    display: none
-
 .photo
   width: 25%
   border-radius: 15px
@@ -45,8 +39,7 @@
   transform: rotate(-3deg)
   &:hover
     transform: rotate(3deg)
-    transition: all .3s 
+    transition: all .3s
     box-shadow: -5px 5px 5px $blue-gray
   &:not(:hover)
-    transition: all .3s 
-
+    transition: all .3s
