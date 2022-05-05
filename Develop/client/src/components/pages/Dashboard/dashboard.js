@@ -32,12 +32,11 @@ function Dashboard() {
   };
 
   return (
-
     <div>
       <OrderHistory />
-      <div className='container'>
+      <div className="container">
         <div className="orderTitle">YOUR PAST LISTINGS</div>
-        <div className='orderDiv'>
+        <div className="orderDiv">
           {data ? getUserListings() : <div>You have not posted any items for sale yet...</div>}
         </div>
       </div>

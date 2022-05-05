@@ -12,21 +12,27 @@ function OrderHistory() {
   console.info(data);
   const getUserOrders = () => {
     return (
-      <div className='container'>
+      <div className="container">
         <div className="orderTitle">
           {data.user.firstName} {data.user.lastName}'s Order History
         </div>
-        <div className='orderDiv'>
-        {data.user.orders.map((e) => (
-          <div key={e._id} className="order-info">
-            {' '}
-            <p>title - {e.items[0].title}</p>
-            <p>Purchase Date - {e.purchaseDate}</p>
-            <p>orderId - {e._id}</p>
-          </div>
-        ))}
+        <div className="orderDiv">
+          {data.user.orders.map((e) => (
+            <div key={e._id} className="order-info">
+              {' '}
+              <p>{e.items[0].title}</p>
+              <img
+                orientation="top"
+                className="dashImg"
+                src={e.items[0].image}
+                alt={e.items[0].title}
+                style={{ width: '10rem', height: '10rem' }}
+              />
+              <p>Purchase Date - {e.purchaseDate}</p>
+              <p>orderId - {e._id}</p>
+            </div>
+          ))}
         </div>
-        
       </div>
     );
   };
